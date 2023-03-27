@@ -5,14 +5,14 @@ Manage your app delegate class.
 
 ## Requirements
 
-StoreSwift supports **iOS 9 and up**, and can be compiled with **Swift 5.5 and up**.
+AppDelegateSwift supports **iOS 9 and up**, and can be compiled with **Swift 5.5 and up**.
 
 
 ## Installation
 
 ### Swift Package Manager
 
-The StoreSwift package URL is:
+The AppDelegateSwift package URL is:
 
 ```
 `https://github.com/alobanov11/AppDelegateSwift`
