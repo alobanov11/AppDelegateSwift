@@ -4,10 +4,12 @@
 
 import UIKit
 
-open class AppDelegate: UIResponder, UIApplicationDelegate {
+public protocol AppService: UIApplicationDelegate {}
+
+open class App: UIResponder, UIApplicationDelegate {
 	public var window: UIWindow?
 
-	open var services: [AppDelegateService] = []
+	open var services: [AppService] = []
 
 	public func application(
 		_ application: UIApplication,
@@ -72,4 +74,16 @@ open class AppDelegate: UIResponder, UIApplicationDelegate {
 	) -> UIInterfaceOrientationMask {
 		self.services.compactMap { $0.application?(application, supportedInterfaceOrientationsFor: window) }.first ?? .portrait
 	}
+}
+
+public extension AppService {
+    @nonobjc
+    var window: UIWindow? {
+        get {
+            (UIApplication.shared.delegate as? App)?.window
+        }
+        set {
+            (UIApplication.shared.delegate as? App)?.window = newValue
+        }
+    }
 }
